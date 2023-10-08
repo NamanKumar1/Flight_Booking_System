@@ -1,0 +1,41 @@
+<html>
+    <head>
+       </head>
+    <body class="dm">
+        <div class="container">
+            <table class="table">
+                <thead>     
+                <tr>
+                    <th>FlightId</th>
+                    <th>FlightNumber</th>
+                    <th>Source</th>
+                    <th>Destination</th>
+                    <th>DepartureTime</th>
+                    <th>ArrivalTime</th>
+                    <th>NoOfDaysInWeek</th>
+                    <th>Option</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let flights of searchArray">
+                    <td>{{flights.id}}</td>
+                    <td>{{flights.flightNumber}}</td>
+                    <td>{{flights.source }}</td>
+                    <td>{{flights.destination }}</td>
+                    <td>{{flights.departureTime}}</td>
+                    <td>{{flights.arrivalTime }}</td>
+                    <td>{{flights.noOfDaysInWeek }}</td>
+
+
+                    <td>
+                      <button type="button" class="btn btn-success"  (click)="editFlight(flights.id)">Edit</button>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+          </div>
+        </body>
+      </html>
+      <router-outlet></router-outlet>
+      

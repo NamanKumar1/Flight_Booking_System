@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>Search Flight</title>
+  </head>
+  <body class="dm">
+      <div class="container">
+        <h2>Add Flight Details</h2>
+        <form>
+          <div class="form-group">
+            <input type="text" required #FNum="ngModel" id="flightNumber" class="form-control" [(ngModel)]="flightDetails.flightNumber" name="flightNumber" placeholder="Enter Flight Number" >
+            <small class="text-danger"  [class.d-none]="FNum.valid || FNum.untouched">Flight Number is Required</small>
+          </div>
+
+          <div class="form-group">
+            <input type="text" required #src="ngModel" id="source" class="form-control" [(ngModel)]="flightDetails.source" name="source" placeholder="Enter the Source">
+            <small class="text-danger"  [class.d-none]="src.valid || src.untouched">Source is Required</small>
+          </div>
+
+          <div class="form-group">
+            
+            <input type="text" required #dest="ngModel"  id="destination" class="form-control" [(ngModel)]="flightDetails.destination" name="destination" placeholder="Enter the Destination" >
+            <small class="text-danger"  [class.d-none]="dest.valid || dest.untouched">Destination is Required</small>
+          </div>
+
+          <div class="form-group">
+           
+            <input type="text" required #DTime="ngModel" id="departureTime" class="form-control" [(ngModel)]="flightDetails.departureTime" name="departureTime" required placeholder="Enter the Departure Time">
+            <small class="text-danger"  [class.d-none]="DTime.valid || DTime.untouched">Departure Time is Required</small>
+          </div>
+
+          <div class="form-group">
+            
+            <input type="text" required #ATime="ngModel" id="arrivalTime" class="form-control" [(ngModel)]="flightDetails.arrivalTime" name="arrivalTime" required placeholder="Enter the Arrival Time">
+            <small class="text-danger"  [class.d-none]="ATime.valid || ATime.untouched">Arrival Time is Required</small>
+          </div>
+
+          <div class="form-group">
+            <label>Days of the Week:</label>
+            <div *ngFor="let day of daysOfWeek">
+              <label>
+                <input type="checkbox" [(ngModel)]="selectedDays[day]" name="selectedDays">{{ day }}
+              </label>
+            </div>
+          </div>
+
+          
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+          </div>
+        </form>
+      </div>
+
+      </body>
+      </html>

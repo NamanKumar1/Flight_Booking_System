@@ -1,0 +1,59 @@
+
+
+
+<html>
+  <head>
+    <title>Search Flight</title>
+  </head>
+
+  <body class="dm">
+    
+      <h1>Search Flights</h1>
+      <form>
+        
+     
+        <div class="form-group">
+          <label >Source</label>
+          <input type="text" required #src="ngModel" [(ngModel)]="source" class="form-control" id="source" name="source" placeholder="Enter the Source">
+          <small class="text-danger"  [class.d-none]="src.valid || src.untouched">Source is Required</small>
+        </div>
+        
+        <div class="form-group">
+            <label >Destination</label>
+            <input type="text" required #dest="ngModel" [(ngModel)]="destination" class="form-control" id="destination" name="destination" placeholder="Enter the destination">
+            <small class="text-danger"  [class.d-none]="dest.valid || dest.untouched">Destination is Required</small>
+          </div>
+      
+          <div class="form-group">
+            <label >Date</label>
+            <input type="text"required #dte="ngModel"  [(ngModel)]="date" class="form-control" id="date" name="date" placeholder="Enter date (yyyy/mm/dd)">
+            <small class="text-danger"  [class.d-none]="dte.valid || dte.untouched">Date is Required</small>
+          </div>
+          <button  type="submit" class="btn btn-primary mt-4" (click)="searchFlights()">Search</button>
+        
+      </form>
+ 
+
+      <table class="tab">
+        <tbody>
+            <tr *ngFor="let flights of searchArray">
+           
+            <td>Flight Number: {{flights.flightNumber}}</td>
+            <td>Departure Time: {{flights.departureTime }}</td>
+            <td>Arrival Time:{{flights.arrivalTime }}</td>
+            
+ 
+            <td>
+                <button type="button" class="btn btn-success" (click)="BookFlight(flights.flightNumber)" >Book</button>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,20 @@
+<div>
+    <h2>Passenger Details</h2>
+    <form #BookForm="ngForm" novalidate (ngSubmit)="onSubmit()">
+      <label for="numberOfPassengers">Number of Passengers:</label>
+      <input type="number" id="numberOfPassengers" [(ngModel)]="numberOfPassengers" name="numberOfPassengers" required>
+      <button type="button" (click)="generatePassengerFields()" >Generate Fields</button>
+  
+      <div *ngFor="let passenger of passengers; let i = index">
+        <h3>Passenger {{ i + 1 }}</h3>
+        <label for="name{{ i }}">Name:</label>
+        <input type="text" id="name{{ i }}" [(ngModel)]="passenger.name" name="name{{ i }}" required>
+  
+        <label for="email{{ i }}">Email:</label>
+        <input type="email" id="email{{ i }}" [(ngModel)]="passenger.email" name="email{{ i }}" required>
+      </div>
+  
+      <button type="submit" [disabled]="BookForm.form.invalid">Submit</button>
+    </form>
+  </div>
+  
